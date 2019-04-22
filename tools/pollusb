@@ -1,0 +1,22 @@
+#!/usr/bin/python
+# Author: litao@meizu.com
+
+import os
+import sys
+import time
+
+def getFileName(filename):
+    (filepath,tempfilename) = os.path.split(filename);
+    (shortname,extension) = os.path.splitext(tempfilename);
+    return filepath,shortname,extension
+
+def main():
+
+    while True:
+        ret = os.system("ls /dev/ttyUSB*")
+        if ret:
+            print("ls /dev/ttyUSB* erro!")
+            return
+        time.sleep(1)
+
+if __name__ == "__main__": main()

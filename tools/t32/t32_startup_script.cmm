@@ -1,0 +1,33 @@
+title "Trace32"
+sys.cpu CORTEXA53
+sys.up
+data.load.binary ../DDRCS0_0.BIN 0x80000000
+data.load.binary ../DDRCS1_0.BIN 0x100000000
+data.load.binary ../OCIMEM.BIN 0x14680000
+data.load.binary ../PIMEM.BIN 0x1c000000
+Register.Set NS 1
+Data.Set SPR:0x30201 %Quad 0x8294b000
+Data.Set SPR:0x30202 %Quad 0x00000032B5193519
+Data.Set SPR:0x30A20 %Quad 0x000000FF440C0400
+Data.Set SPR:0x30A30 %Quad 0x0000000000000000
+Data.Set SPR:0x30100 %Quad 0x0000000004C5D93D
+Register.Set CPSR 0x3C5
+MMU.Delete
+MMU.SCAN PT 0xFFFFFF8000000000--0xFFFFFFFFFFFFFFFF
+mmu.on
+mmu.pt.list 0xffffff8000000000
+data.load.elf ../../vmlinux 0x1488800000 /nocode
+task.config /opt/t32/demo/arm64/kernel/linux/linux-3.x/linux3.t32
+menu.reprogram /opt/t32/demo/arm64/kernel/linux/linux-3.x/linux.men
+sYmbol.NEW.MACRO offsetof(type,member) ((int)(&((type*)0)->member))
+sYmbol.NEW.MACRO container_of(ptr,type,member) ((type *)((char *)(ptr)-offsetof(type,member)))
+task.dtask
+v.v  %ASCII %STRING linux_banner
+winpos 0% 0% 50% 100%
+w.v.f /a /l
+winpos 50% 0%
+w.r
+winpos 50% 30%
+d.l
+do core0_regs.cmm
+sYmbol.SourcePATH.SetRecurseDir "/home/xiehaocheng/work/kernel/msm-4.14"
