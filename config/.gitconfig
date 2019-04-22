@@ -1,0 +1,35 @@
+[sendemail]
+	suppresscc = all
+	smtpserver = smtp.163.com
+	from = testmail@163.com
+	smtpuser = testmail@163.com
+	smtppass = password
+	smtpserverport = 587
+	smtpencryption = ntlm
+[user]
+	name = 谢昊成
+	email = xiehaocheng@meizu.com
+[core]
+	editor = vim
+[color]
+	ui = auto
+[http]
+	postBuffer = 1073741824
+[credential]
+	helper = cache --timeout=36000000
+[credential "http://review.rnd.meizu.com"]
+	username = xiehaocheng
+[credential "http://review.rnd.meizu.com/l"]
+	username = xiehaocheng
+[url "ssh://xiehaocheng@review.rnd.meizu.com:29418/"]
+	insteadOf = ssh://review.rnd.meizu.com:29418/
+[url "ssh://xiehaocheng@review.rnd.meizu.com:29418"]
+	insteadOf = http://review.rnd.meizu.com
+[url "ssh://xiehaocheng@review.rnd.meizu.com:29999/"]
+	insteadOf = ssh://review.rnd.meizu.com:29999/
+[url "ssh://xiehaocheng@review.rnd.meizu.com:29999"]
+	insteadOf = http://review.rnd.meizu.com/l
+[url "ssh://xiehaocheng@ma.meizu.com:29418"]
+	insteadOf = http://ma.meizu.com
+[push]
+	default = matching
