@@ -65,6 +65,9 @@ sudo apt-get install virtualbox
 ## compare tools
 sudo apt-get install meld
 
+## EDK2 build
+sudo apt-get install build-essential uuid-dev nasm
+
 ## Android compile library
 sudo apt-get install gnupg flex bison gperf zip curl zlib1g-dev zlib1g-dev:i386 gcc-multilib g++-multilib libc6-dev libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev ccache libgl1-mesa-dev libgl1-mesa-glx:i386 libxml2-utils xsltproc unzip lib32z1 libncurses5-dev:i386 libx11-dev:i386 libreadline6-dev:i386  tofrodos python-markdown libssl-dev device-tree-compiler
 
