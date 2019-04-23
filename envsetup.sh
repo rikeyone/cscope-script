@@ -39,10 +39,11 @@ sudo apt-get install chromium-browser
 ## pdf reader
 #sudo apt-get install okular
 
-## appimaged
-wget "https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage"
-chmod a+x appimaged-x86_64.AppImage
-sudo ./appimaged-x86_64.AppImage --install
+## AppImageLauncher
+wget -O appimagelauncher.deb \
+	"https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher_1.2.2-travis556.git20190414.ba13bec.bionic_amd64.deb"
+chmod a+x appimagelauncher.deb
+sudo ./appimagelauncher.deb &
 
 ## WizNote
 wget "https://github.com/altairwei/WizNotePlus/releases/download/v2.7.0/WizNote-x86_64.AppImage"
