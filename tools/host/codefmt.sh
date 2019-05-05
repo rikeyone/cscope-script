@@ -5,7 +5,7 @@ if [ x$1 = x ]; then
 	exit 1
 fi
 
-SRC=$(find $1 -name "*.c" -o -name "*.h")
+SRC=$(find $1 -name "*.c" -o -name "*.h" -o -name "*.sh")
 
 echo "Handle Source Files:"
 echo "${SRC}"
