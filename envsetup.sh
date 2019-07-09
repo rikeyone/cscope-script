@@ -17,7 +17,7 @@ cp config/.vimrc ~/.vimrc
 
 ## add cscope tool developed by myself
 sudo cp config/cscope.sh /usr/local/bin/
-echo "alias cscope='source /usr/local/bin/cscope.sh'" >> ~/.bashrc
+echo "alias setcs='cscope.sh && export CSCOPE_DB=\`pwd\`/cscope.out'" >> ~/.bashrc
 
 ## git
 ## Note: you should copy your .gitconfig and .ssh 

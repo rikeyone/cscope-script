@@ -37,24 +37,24 @@ if [ 1 -eq ${change} ]; then
 		res=$(find ${SRC} -maxdepth 4 -name cscope.out)
 		if [ "x"${res} != "x" ]; then
 			echo "Found cscope database:${res}, just change CSCOPE_DB env!"
-			export CSCOPE_DB=${res}
+			#export CSCOPE_DB=${res}
 		fi
 		echo "Not found cscope database, generate cscope database!"
 		find ${SRC} -name "*.h" -o -name "*.c" -o -name "*.cc" > cscope.files
 		cscope -bkq -i cscope.files 
 		#ctags -R *
-		export CSCOPE_DB=${OUT}/cscope.out
+		#export CSCOPE_DB=${OUT}/cscope.out
 	else
 		echo "Found cscope database:${res}, just change CSCOPE_DB env!"
-		export CSCOPE_DB=${res}
+		#export CSCOPE_DB=${res}
 	fi
 elif [ 1 -eq ${update} ]; then
 	echo "udpate project cscope database!"
 	find ${SRC} -name "*.h" -o -name "*.c" -o -name "*.cc" > cscope.files
 	cscope -bkq -i cscope.files
 	#ctags -R *
-	export CSCOPE_DB=${OUT}/cscope.out
+	#export CSCOPE_DB=${OUT}/cscope.out
 fi
 
-echo CSCOPE_DB_PATH=${CSCOPE_DB}
+#echo CSCOPE_DB=${CSCOPE_DB}
 
