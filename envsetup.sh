@@ -54,6 +54,11 @@ wget "https://github.com/altairwei/WizNotePlus/releases/download/v2.7.0/WizNote-
 chmod 777 WizNote-x86_64.AppImage
 sudo cp WizNote-x86_64.AppImage /usr/local/bin/
 
+# WizNote 16.04 ppa source
+#sudo add-apt-repository ppa:wiznote-team
+#sudo apt-get update
+#sudo apt-get install wiznote
+
 ## jdk8
 sudo apt-get install openjdk-8-jdk
 
