@@ -40,10 +40,14 @@ sudo apt-get install chromium-browser
 #sudo apt-get install okular
 
 ## AppImageLauncher
+# ubuntu 18.04
 wget -O appimagelauncher.deb \
 	"https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher_1.2.2-travis556.git20190414.ba13bec.bionic_amd64.deb"
+# ubuntu 16.04
+wget -O appimagelauncher.deb \
+	"https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher_1.3.1-travis683.git20190708.38ad3be.xenial_amd64.deb"
 chmod a+x appimagelauncher.deb
-sudo ./appimagelauncher.deb &
+sudo dpkg -i appimagelauncher.deb
 
 ## WizNote
 wget "https://github.com/altairwei/WizNotePlus/releases/download/v2.7.0/WizNote-x86_64.AppImage"
