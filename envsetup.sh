@@ -65,14 +65,17 @@ sudo apt-get install openjdk-8-jdk
 ## fastboot & adb
 sudo apt-get install android-tools-fastboot
 sudo apt-get install android-tools-adb
-sudo usermod -aG plugdev $LOGNAME
-echo 'KERNEL=="ttyUSB[0-9]*", MODE="0666"' > 70-ttyusb.rules
-sudo mv 70-ttyusb.rules /etc/udev/rules.d/70-ttyusb.rules
 
 ## use this script to install usb device for adb
 # SUBSYSTEM=="usb", ATTRS{idVendor}=="2a45", ATTRS{idProduct}=="0c02",MODE="0666"
 # Set USB device mode, other wise you must use sudo command.
 sudo cp config/adb_add_device.sh /usr/local/bin/
+
+## QCOM QFIL Mode using /dev/ttyUSB* device
+## so we need to set the device mode to 0666
+sudo usermod -aG plugdev $LOGNAME
+echo 'KERNEL=="ttyUSB[0-9]*", MODE="0666"' > 70-ttyusb.rules
+sudo mv 70-ttyusb.rules /etc/udev/rules.d/70-ttyusb.rules
 
 ## virtulbox
 sudo apt-get install virtualbox
