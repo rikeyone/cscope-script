@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ $# != 2 ]; then
-	echo "usage: $0 vendorid productid"
+	echo "usage: $0 vendorid productid [don't need 0x prefix]"
 	exit 1
 fi
 
@@ -10,7 +10,7 @@ fi
 #	exit 1;
 #fi
 
-echo $1 >> ~/.android/adb_usb.ini
+echo 0x$1 >> ~/.android/adb_usb.ini
 sudo echo \
 	"SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"$1\", ATTRS{idProduct}==\"$2\", MODE=\"0666\"" \
 >> /etc/udev/rules.d/51-android.rules
