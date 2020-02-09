@@ -8,6 +8,8 @@ fi
 
 echo ${USER}
 
+## >>>>>>>>>>>>>>>>>>>> below is for develop environment software <<<<<<<<<<<<<<<<<<<<<<
+
 ## essiential
 sudo apt-get install vim cscope ctags
 sudo apt-get install build-essential
@@ -33,32 +35,6 @@ cp config/.gitconfig ~/.gitconfig
 ## minicom
 sudo apt-get install minicom
 
-## chromium-browser
-sudo apt-get install chromium-browser
-
-## pdf reader
-#sudo apt-get install okular
-
-## AppImageLauncher
-# ubuntu 18.04
-wget -O appimagelauncher.deb \
-	"https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher_1.2.2-travis556.git20190414.ba13bec.bionic_amd64.deb"
-# ubuntu 16.04
-wget -O appimagelauncher.deb \
-	"https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher_1.3.1-travis683.git20190708.38ad3be.xenial_amd64.deb"
-chmod a+x appimagelauncher.deb
-sudo dpkg -i appimagelauncher.deb
-
-## WizNote
-wget "https://github.com/altairwei/WizNotePlus/releases/download/v2.7.0/WizNote-x86_64.AppImage"
-chmod 777 WizNote-x86_64.AppImage
-sudo cp WizNote-x86_64.AppImage /usr/local/bin/
-
-# WizNote 16.04 ppa source
-#sudo add-apt-repository ppa:wiznote-team
-#sudo apt-get update
-#sudo apt-get install wiznote
-
 ## jdk8
 sudo apt-get install openjdk-8-jdk
 
@@ -77,12 +53,6 @@ sudo usermod -aG plugdev $LOGNAME
 echo 'KERNEL=="ttyUSB[0-9]*", MODE="0666"' > 70-ttyusb.rules
 sudo mv 70-ttyusb.rules /etc/udev/rules.d/70-ttyusb.rules
 
-## virtulbox
-sudo apt-get install virtualbox
-
-## compare tools
-sudo apt-get install meld
-
 ## EDK2 build
 sudo apt-get install build-essential uuid-dev nasm
 
@@ -97,3 +67,103 @@ sudo apt-get install cifs-utils
 #1.sudo apt-get install libxml-simple-perl
 #2.perl -e shell -MCPAN
 #3.install XML::Parser
+echo "WARNING: For Andord O/P or later, need to install libxml like below:"
+echo "1.sudo apt-get install libxml-simple-perl"
+echo "2.perl -e shell -MCPAN"
+echo "3.install XML::Parser"
+echo "> Install development environment successfully! <"
+
+## >>>>>>>>>>>>>>>>>>>> below is for ubuntu software <<<<<<<<<<<<<<<<<<<<<<
+
+echo "Do you want to continue installing ubuntu software(virtulbox/meld/chrome/wiznote...)? (y/n)"
+read choice
+if [ "$choice" = "n" ]; then
+    exit 0
+fi
+
+## virtulbox
+echo "Do you want to install virtualbox? (y/n)"
+read choice
+if [ "$choice" = "n" ]; then
+    echo "do not install virtualbox"
+else
+    echo "install virtualbox"
+	sudo apt-get install virtualbox
+fi
+
+## compare tool
+echo "Do you want to install meld compare tool? (y/n)"
+read choice
+if [ "$choice" = "n" ]; then
+    echo "do not install meld"
+else
+    echo "install meld"
+	sudo apt-get install meld
+fi
+
+## chromium-browser
+echo "Do you want to install chromium-browser? (y/n)"
+read choice
+if [ "$choice" = "n" ]; then
+    echo "do not install chromium-browser"
+else
+    echo "install chromium-browser"
+	sudo apt-get install chromium-browser
+fi
+
+## AppImageLauncher
+echo "Do you want to install AppImageLauncher? (y/n)"
+read choice
+if [ x$choice != xn ]; then
+	echo "what is your ubuntu version: (1/2/3)"
+	echo "1: 16.04 "
+	echo "2: 18.04 "
+	echo "3: other "
+	read version
+	if [ "$version" = "1" ]; then
+		# ubuntu 16.04
+		wget -O appimagelauncher.deb \
+		"https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher_1.3.1-travis683.git20190708.38ad3be.xenial_amd64.deb"
+		chmod a+x appimagelauncher.deb
+		sudo dpkg -i appimagelauncher.deb
+	elif [ "$version" = "2" ]; then
+		# ubuntu 18.04
+		wget -O appimagelauncher.deb \
+		"https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher_1.2.2-travis556.git20190414.ba13bec.bionic_amd64.deb"
+		chmod a+x appimagelauncher.deb
+		sudo dpkg -i appimagelauncher.deb
+	else
+		echo "do not support this ubuntu version!"
+	fi
+else
+    echo "do not install AppImageLauncher"
+fi
+
+## WizNote
+echo "Do you want to install WizNote? (y/n)"
+read choice
+if [ x$choice != xn ]; then
+	echo "what is your ubuntu version: (1/2/3)"
+	echo "1: 16.04 "
+	echo "2: 18.04 "
+	echo "3: other "
+	read version
+	if [ "$version" = "1" ]; then
+		# WizNote 16.04 ppa source
+		sudo add-apt-repository ppa:wiznote-team
+		sudo apt-get update
+		sudo apt-get install wiznote
+	elif [ "$version" = "2" ]; then
+		# ubuntu 18.04
+		wget "https://github.com/altairwei/WizNotePlus/releases/download/v2.7.0/WizNote-x86_64.AppImage"
+		chmod 777 WizNote-x86_64.AppImage
+		sudo cp WizNote-x86_64.AppImage /usr/local/bin/
+	else
+		echo "do not support this ubuntu version!"
+	fi
+else
+    echo "do not install WizNote"
+fi
+
+## pdf reader
+#sudo apt-get install okular
