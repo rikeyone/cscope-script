@@ -1,14 +1,16 @@
 [sendemail]
 	suppresscc = all
 	smtpserver = smtp.163.com
-	from = testmail@163.com
-	smtpuser = testmail@163.com
-	smtppass = password
-	smtpserverport = 587
-	smtpencryption = ntlm
+	from = xiehaocheng127@163.com
+	smtpuser = xiehaocheng127@163.com
+	smtpserverport = 25
+#	smtpserver = smtp.gmail.com
+#	smtpuser = xiehaocheng127@gmail.com
+#	smtpserverport = 587
+#	smtpencryption = tls
 [user]
 	name = 谢昊成
-	email = xiehaocheng@meizu.com
+	email = xiehaocheng127@163.com
 [core]
 	editor = vim
 [color]
