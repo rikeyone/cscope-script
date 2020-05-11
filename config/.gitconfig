@@ -1,9 +1,17 @@
 [sendemail]
 	suppresscc = all
-	smtpserver = smtp.163.com
-	from = xiehaocheng127@163.com
-	smtpuser = xiehaocheng127@163.com
-	smtpserverport = 25
+	from = haocheng.xie@outlook.com
+	smtpserver = smtp.office365.com
+	smtpuser = haocheng.xie@outlook.com
+	smtpserverport = 587
+	smtpencryption = tls
+
+#	from = xiehaocheng127@163.com
+#	smtpserver = smtp.163.com
+#	smtpuser = xiehaocheng127@163.com
+#	smtpserverport = 25
+
+#	from = xiehaocheng127@gmail.com
 #	smtpserver = smtp.gmail.com
 #	smtpuser = xiehaocheng127@gmail.com
 #	smtpserverport = 587
